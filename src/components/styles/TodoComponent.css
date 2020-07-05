@@ -1,0 +1,21 @@
+.todo{
+    width: 40%;
+    /* height:6%; */
+    background-color: #006eff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0px 20px 10px -8px #0000006b;
+    padding: 2%;
+    margin-bottom: 1.5em;
+
+}
+.todo__title{
+    color: white;
+    width: 100%;
+}
+.todo__desc{
+    color: white;
+    width: 100%;
+}
