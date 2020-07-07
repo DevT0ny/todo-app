@@ -6,3 +6,70 @@
     align-items: center;
     /* justify-content: center; */
 }
+.cont{
+    width: 44%;
+    padding: 2px 0px;
+    margin: 0;
+    bottom: 0;
+    height: 70%;
+    overflow: auto;
+    white-space: nowrap;
+
+}
+.cont::-webkit-scrollbar {
+    display: none;
+}
+:root{
+    --blue: #006eff;
+    --dark-blue: #003881;
+    --light-blue:#85baff;
+}
+
+#empty{
+    width: 99%;
+    height: 76%;
+    margin: 0;
+    border: 2px dashed #bbbbbb;
+    text-align: center;
+    font-size: 700;
+    color: #aaaaaa;
+    padding: 4rem 0;
+}
+
+.todo-list> .fade-enter {
+  opacity: 0.01 ;
+}
+
+.todo-list> .fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in ;
+}
+
+.todo-list> .fade-exit {
+  opacity: 1;
+}
+
+.todo-list> .fade-exit-active {
+  opacity: 0.01;
+  transform-origin: center;
+  transform: rotateX(90deg);
+  transition: opacity .4s ease-in, transform .3s;
+}
+
+.todo-list > .slow-enter{
+    opacity: 0 ;
+    transform: scaleY(0) ;
+    transform-origin: top;
+}
+.todo-list > .slow-enter-active{
+    opacity: 0 ;
+    transform: scaleY(1) ;
+    transition: opacity 5s 10s,transform 4s 10s ;
+}
+.todo-list > .slow-exit{
+    opacity: 1;
+}
+.todo-list > .slow-exit-active{
+    opacity: 0;
+    transition: opacity .1s;
+}

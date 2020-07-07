@@ -3,38 +3,41 @@ import './styles/AddTodo.css'
 export default class AddTodo extends Component {
     state={
         todo:{
-            title:""
-        },
-        err:false
-
+            title:"",
+            id:null
+        }
     }
-    // showErr()
+
     handleSubmit = e => {
         e.preventDefault();
-        // console.log(this.props)
-        if (this.state.title.match(/\w+/)==null) {
-            // showErr();
-             return false
-            }
-        this.props.addTodo(this.state)
+        if (this.state.todo.title.match(/\w+/)==null) { e.target.children[0].setAttribute("data-error","data-error");return false}
+        this.props.addTodo(this.state.todo)
+        e.target.children[0].value=null;
+        this.setState({todo:{title:"",id:null}})
     }
+
     handleChange = e => {
-        this.setState({
-            [e.target.name]:e.target.value
-        })
+        let value = e.target.value
+        if (!value.match(/\w+/))
+            e.target.setAttribute("data-error","data-error")
+        else  
+            e.target.removeAttribute("data-error")
         
+        this.setState({
+            todo: {
+                [e.target.name]:value,
+                id:new Date().getTime()
+            }
+        })
     }
+
     render() {
         return (
-            // <div className="form">
-                <form className="form" onSubmit={this.handleSubmit}> 
-                    <label htmlFor="title" className="form__title__label">
-                        
-                        <input type="text" id="todoInput" className="form__title__input" name="title" onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" className="form__submit" value="Add"/>
+                <form className="form" onSubmit={this.handleSubmit} autoComplete="off" > 
+                    <input type="text" id="todoInput" className="form__title" name="title" onChange={this.handleChange} />
+                    <input type="submit" className="form__submit" value="+"/>
+                    <span className="form__anim" id="oh" ></span>
                 </form> 
-            // </div>
         )
     }
 }

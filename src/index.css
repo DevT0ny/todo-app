@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-.cl{
-  color: red;
+*{
+  font-family: 'Nunito Sans',sans-serif;
+  /* font-family: 'Poppins',sans-serif; */
+  /* font-family: 'Montserrat',sans-serif; */
+  /* font-family: 'Muli',sans-serif; */
+
 }
