@@ -13,6 +13,10 @@ export default class AddTodo extends Component {
         if (this.state.todo.title.match(/\w+/)==null) { e.target.children[0].setAttribute("data-error","data-error");return false}
         this.props.addTodo(this.state.todo)
         e.target.children[0].value=null;
+        // e.target.children[2].style.animation="explode .1s";
+        // e.target.children[2].style.animation="";
+        // e.target.children[2].style.animation="added .3s .1s";
+
         this.setState({todo:{title:"",id:null}})
     }
 

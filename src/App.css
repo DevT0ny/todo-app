@@ -38,11 +38,13 @@
 
 .todo-list> .fade-enter {
   opacity: 0.01 ;
+  transform: translateX(-600px);
 }
 
 .todo-list> .fade-enter-active {
   opacity: 1;
-  transition: opacity 1s ease-in ;
+  transform: translateX(1px);
+  transition: opacity 1s, transform 1s ;
 }
 
 .todo-list> .fade-exit {
@@ -51,10 +53,17 @@
 
 .todo-list> .fade-exit-active {
   opacity: 0.01;
-  transform-origin: center;
-  transform: rotateX(90deg);
-  transition: opacity .4s ease-in, transform .3s;
+  transform: translateX(600px);
+  transition: opacity 1s .3s, transform .5s .3s;
 }
+
+
+
+
+
+
+
+
 
 .todo-list > .slow-enter{
     opacity: 0 ;

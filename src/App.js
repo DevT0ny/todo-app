@@ -15,40 +15,34 @@ class App extends Component {
     this.setState({
       todos
     })
-    console.log("Mounted",todos)
-    // if (!todos.length) document.getElementById("empty").style.display="block"
+    // console.log("Mounted",todos)
   }
 
   addTodo= (todo)=>{
-    // let todos= this.state.todos
-    // todos.unshift(todo)
     this.setState((state)=>{
       return {todos:[todo,...state.todos]};
     })
-    console.log("added")
-    // localStorage.setItem("todos",JSON.stringify(this.state.todos))
   }
 
   removeTodo = (_id,e) =>{
-    console.group("Remove section")
-    console.log("before",this.state.todos)
+    // console.group("Remove section")
+    // console.log("before",this.state.todos)
     this.setState(({todos})=>{
       return {todos:  todos.filter(({id} )=> id!==_id)}
     })
-    console.log("after",this.state.todos)
-    console.groupEnd()
+    // console.log("after",this.state.todos)
+    // console.groupEnd()
 
   }
-  componentWillUnmount(){console.log("got fired")}
+
+  // componentWillUnmount(){console.log("got fired")}
+
   componentDidUpdate(){
-    console.log("Updated",this.state.todos)
+    // console.log("Updated",this.state.todos)
     localStorage.setItem("todos",JSON.stringify(this.state.todos))
-    // if (this.state.todos.length) document.getElementById("empty").style.display="none";
-    // else document.getElementById("empty").style.display="block";
   }
 
   createTodos=()=>{
-    console.log(this.state.todos.length)
     if (this.state.todos.length){
       return (this.state.todos.map((todo)=>(
         <CSSTransition key={todo.id} timeout={500} classNames="fade">
@@ -82,7 +76,7 @@ class App extends Component {
           
           ):(
             this.state.todos.map((todo)=>(
-            <CSSTransition key={todo.id} timeout={500} classNames="fade">
+            <CSSTransition key={todo.id} timeout={1000} classNames="fade">
               <TodoComponent todo={todo} removeTodo={this.removeTodo} />
             </CSSTransition>))
           )
